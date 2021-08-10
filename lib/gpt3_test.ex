@@ -12,16 +12,15 @@ defmodule GPT3Test do
   end
 
   defp data() do
-    prompt = %{
+    request_body = %{
       # prompt is the input given to the engine.
       # multiple inputs can be fed with with sending each
       # input as a list element to `prompt`
       prompt: "This is a test",
-      labels: ["Positive", "Negative", "Neutral"],
       max_tokens: 5
     }
 
-    {:ok, json} = Jason.encode(prompt)
+    {:ok, json} = Jason.encode(request_body)
     # Jason will encode the map into a compatible
     # json form
     json
