@@ -24,3 +24,7 @@ gpt3_test-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+mix.lock
+.elixir_ls
+config/
