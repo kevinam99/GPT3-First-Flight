@@ -1,34 +1,35 @@
 defmodule GPT3Test do
-  require HTTPoison
-  # import Jason
+  @author Kevin
   @moduledoc """
   Module to test with GPT 3
-  """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-  iex> Gpt3Test.hello()
-  :world
-
+  Here, we'll only test completions with the
+  Davinci engine on OpenAI
   """
 
   defp api_key() do
-    ""
+    "<PASTE_YOUR_API_KEY_HERE>"
   end
 
   defp data() do
-    """
-    {"prompt": "This is a test", "max_tokens": 5}
-    """
+    prompt = %{
+      # prompt is the input given to the engine.
+      # multiple inputs can be fed with with sending each
+      # input as a list element to `prompt`
+      prompt: "This is a test",
+      max_tokens: 5
+    }
+
+    {:ok, json} = Jason.encode(prompt)
+    # Jason will encode the map into a compatible
+    # json form
+    json
   end
 
   defp headers() do
     [
       "Content-Type": "application/json",
-      Authorization: "Bearer #{api_key()}"
+      "Authorization": "Bearer #{api_key()}"
     ]
   end
 
@@ -39,6 +40,9 @@ defmodule GPT3Test do
   def start() do
     HTTPoison.start()
     {:ok, response} = HTTPoison.post(url(), data(), headers())
-    IO.inspect(response.body)
+    # IO.inspect(response)
+    {:ok, body} = Jason.decode(response.body)
+    response_map = body["choices"] |> List.first
+    response_map["text"]
   end
 end
