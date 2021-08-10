@@ -17,6 +17,7 @@ defmodule GPT3Test do
       # multiple inputs can be fed with with sending each
       # input as a list element to `prompt`
       prompt: "This is a test",
+      labels: ["Positive", "Negative", "Neutral"],
       max_tokens: 5
     }
 
@@ -29,7 +30,7 @@ defmodule GPT3Test do
   defp headers() do
     [
       "Content-Type": "application/json",
-      "Authorization": "Bearer #{api_key()}"
+      Authorization: "Bearer #{api_key()}"
     ]
   end
 
@@ -39,10 +40,21 @@ defmodule GPT3Test do
 
   def start() do
     HTTPoison.start()
-    {:ok, response} = HTTPoison.post(url(), data(), headers())
+
+    case HTTPoison.post(url(), data(), headers()) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: response}} -> # if success, output the result
+        {:ok, body} = Jason.decode(response)
+        response_map = body["choices"] |> List.first()
+        response_map["text"]
+
+        {:ok, %HTTPoison.Response{status_code: 400, body: response}} -> # if failure, inspect error
+          {:ok, error_msg} = Jason.decode(response)
+          error_msg
+
+        {:ok, %HTTPoison.Response{status_code: 404}} -> # if url not found
+          "The URL #{url()} does not exist"
+    end
+
     # IO.inspect(response)
-    {:ok, body} = Jason.decode(response.body)
-    response_map = body["choices"] |> List.first
-    response_map["text"]
   end
 end
