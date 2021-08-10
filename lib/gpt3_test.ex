@@ -1,6 +1,6 @@
 defmodule Gpt3Test do
   @moduledoc """
-  Documentation for `Gpt3Test`.
+  Module to test with GPT 3
   """
 
   @doc """
@@ -12,7 +12,9 @@ defmodule Gpt3Test do
       :world
 
   """
-  def hello do
-    :world
+
+
+  defp api_key do
+    ""
   end
 end
