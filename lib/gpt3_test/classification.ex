@@ -13,6 +13,7 @@ defmodule GPT3Test.Classification do
 
   defp data(query) do
     request_body = %{
+      # A list of examples with labels, in the follwing format:
       examples: [
         [
           "No Electricity in Mapusa since morning 9AM, kindly get it fixed ASAP, people are facing a lot of trouble.",
@@ -27,7 +28,9 @@ defmodule GPT3Test.Classification do
         ["Where can i apply from a new DDSSY scheme card??", "Neutral"],
         ["bad roads for 1 month(s)", "Negative"]
       ],
+      # Query to be classified.
       query: query,
+      # ID of the engine to use for Search. Deafault to Ada.
       search_model: "ada",
       model: "curie",
       labels: ["Positive", "Negative", "Neutral"]
