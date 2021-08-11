@@ -14,20 +14,7 @@ defmodule GPT3Test.Classification do
   defp data(query) do
     request_body = %{
       # A list of examples with labels, in the follwing format:
-      examples: [
-        [
-          "No Electricity in Mapusa since morning 9AM, kindly get it fixed ASAP, people are facing a lot of trouble.",
-          "Negative"
-        ],
-        ["No water in GEC for last one week, kindly get it fixed!!", "Negative"],
-        ["There was no electricity the entire night.
-        Our transformer kept getting shorted at night, What kind of maintenance was done one week back,
-        by cutting of the power supply of North Goa???", "Negative"],
-        ["No light for 4 hours", "Negative"],
-        ["I appreciate the department's work", "Positive"],
-        ["Where can i apply from a new DDSSY scheme card??", "Neutral"],
-        ["bad roads for 1 month(s)", "Negative"]
-      ],
+      examples: training_examples(),
       # Query to be classified.
       query: query,
       # ID of the engine to use for Search. Deafault to Ada.
@@ -40,6 +27,25 @@ defmodule GPT3Test.Classification do
     # Jason will encode the map into a compatible
     # json form
     json
+  end
+
+  # can either write the examples manually in the code or put them
+  # in a file and then read that file.
+  defp training_examples do
+    [
+      [
+        "No Electricity in Mapusa since morning 9AM, kindly get it fixed ASAP, people are facing a lot of trouble.",
+        "Negative"
+      ],
+      ["No water in GEC for last one week, kindly get it fixed!!", "Negative"],
+      ["There was no electricity the entire night.
+      Our transformer kept getting shorted at night, What kind of maintenance was done one week back,
+      by cutting of the power supply of North Goa???", "Negative"],
+      ["No light for 4 hours", "Negative"],
+      ["I appreciate the department's work", "Positive"],
+      ["Where can i apply from a new DDSSY scheme card??", "Neutral"],
+      ["bad roads for 1 month(s)", "Negative"]
+    ]
   end
 
   defp headers() do
