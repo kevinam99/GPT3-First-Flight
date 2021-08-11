@@ -1,6 +1,6 @@
 defmodule GPT3Test.Classification do
   defp api_key() do
-    ""
+    "<PASTE_YOUR_API_KEY_HERE>"
   end
 
   defp data do
@@ -20,11 +20,7 @@ defmodule GPT3Test.Classification do
     # json form
     json
   end
-  {:ok, response} = HTTPoison.post(url(), data(), headers())
-  IO.inspect(response)
-  # {:ok, body} = Jason.decode(response.body)
-  # response_map = body["choices"] |> List.first
-  # response_map["text"]
+
   defp headers() do
     [
       "Content-Type": "application/json",
@@ -38,10 +34,20 @@ defmodule GPT3Test.Classification do
 
   def start() do
     HTTPoison.start()
-    {:ok, response} = HTTPoison.post(url(), data(), headers())
-    IO.inspect(response)
-    # {:ok, body} = Jason.decode(response.body)
-    # response_map = body["choices"] |> List.first
-    # response_map["text"]
+    case HTTPoison.post(url(), data(), headers()) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: response}} -> # if success, output the result
+        {:ok, body} = Jason.decode(response)
+        {:ok, body["label"]}
+
+        {:ok, %HTTPoison.Response{status_code: 400, body: response}} -> # if failure, inspect error
+          {:ok, error_msg} = Jason.decode(response)
+          {:error, error_msg}
+
+        {:ok, %HTTPoison.Response{status_code: 404}} -> # if url not found
+          {:error, "The URL #{url()} does not exist"}
+
+        {:ok, %HTTPoison.Response{status_code: 401, body: response}} -> # Invalid auth header.
+          {:error, "Something bad happened, #{response}"}
+    end
   end
 end

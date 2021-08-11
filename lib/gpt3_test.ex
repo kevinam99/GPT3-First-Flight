@@ -56,6 +56,9 @@ defmodule GPT3Test do
 
         {:ok, %HTTPoison.Response{status_code: 404}} -> # if url not found
           {:error, "The URL #{url()} does not exist"}
+
+        {:ok, %HTTPoison.Response{status_code: 401, body: response}} -> # Invalid auth header.
+          {:error, "Something bad happened, #{response}"}
     end
 
     # IO.inspect(response)
