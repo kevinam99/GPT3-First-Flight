@@ -45,20 +45,24 @@ defmodule GPT3Test do
     HTTPoison.start()
 
     case HTTPoison.post(url(), data(), headers()) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: response}} -> # if success, output the result
+      # if success, output the result
+      {:ok, %HTTPoison.Response{status_code: 200, body: response}} ->
         {:ok, body} = Jason.decode(response)
         response_map = body["choices"] |> List.first()
         {:ok, response_map["text"]}
 
-        {:ok, %HTTPoison.Response{status_code: 400, body: response}} -> # if failure, inspect error
-          {:ok, error_msg} = Jason.decode(response)
-          {:error, error_msg}
+      # if failure, inspect error
+      {:ok, %HTTPoison.Response{status_code: 400, body: response}} ->
+        {:ok, error_msg} = Jason.decode(response)
+        {:error, error_msg}
 
-        {:ok, %HTTPoison.Response{status_code: 404}} -> # if url not found
-          {:error, "The URL #{url()} does not exist"}
+      # if url not found
+      {:ok, %HTTPoison.Response{status_code: 404}} ->
+        {:error, "The URL #{url()} does not exist"}
 
-        {:ok, %HTTPoison.Response{status_code: 401, body: response}} -> # Invalid auth header.
-          {:error, "Something bad happened, #{response}"}
+      # Invalid auth header.
+      {:ok, %HTTPoison.Response{status_code: 401, body: response}} ->
+        {:error, "Something bad happened, #{response}"}
     end
 
     # IO.inspect(response)
