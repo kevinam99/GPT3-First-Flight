@@ -2,7 +2,8 @@
 
 **TODO: A lot!**
 Somebody please tell me how to hide my API key :'(  
-For now, I hid it in ```lib/secrets.exs``` and ignored it in .gitignore
+For now, I hid it in ```lib/secrets.exs``` and ignored it in .gitignore  
+  
 Install the dependencies with ```mix deps.get``` before running any file.
 
 Each module can only be run by invoking the ```start``` function with an input query.  
