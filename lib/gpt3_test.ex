@@ -17,6 +17,7 @@ defmodule GPT3Test do
       # multiple inputs can be fed with with sending each
       # input as a list element to `prompt`
       prompt: "This is a test",
+      # total number of allowed tokens in the response from GPT3
       max_tokens: 5
     }
 
@@ -44,14 +45,14 @@ defmodule GPT3Test do
       {:ok, %HTTPoison.Response{status_code: 200, body: response}} -> # if success, output the result
         {:ok, body} = Jason.decode(response)
         response_map = body["choices"] |> List.first()
-        response_map["text"]
+        {:ok, response_map["text"]}
 
         {:ok, %HTTPoison.Response{status_code: 400, body: response}} -> # if failure, inspect error
           {:ok, error_msg} = Jason.decode(response)
-          error_msg
+          {:error, error_msg}
 
         {:ok, %HTTPoison.Response{status_code: 404}} -> # if url not found
-          "The URL #{url()} does not exist"
+          {:error, "The URL #{url()} does not exist"}
     end
 
     # IO.inspect(response)
