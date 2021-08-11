@@ -5,6 +5,9 @@ defmodule GPT3Test do
 
   Here, we'll only test completions with the
   Davinci engine on OpenAI
+
+  This is using a completion api. Give a sentence as input
+  and GPT3 will complete the sentence for you
   """
 
   defp api_key() do
