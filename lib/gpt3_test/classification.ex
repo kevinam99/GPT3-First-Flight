@@ -5,12 +5,13 @@ defmodule GPT3Test.Classification do
   BE project.
 
   It understood the training examples well and it handles spelling mistakes.
+  It also handles grmmatical errors.
   """
   defp api_key() do
     "<PASTE_YOUR_API_KEY_HERE>"
   end
 
-  defp data do
+  defp data(query) do
     request_body = %{
       examples: [
         ["No Electricity in Mapusa since morning 9AM, kindly get it fixed ASAP, people are facing a lot of trouble.", "Negative"],
@@ -24,7 +25,7 @@ defmodule GPT3Test.Classification do
         ["I appreciate the department's work", "Positive"],
         ["bad roads for 1 month(s)", "Negative"]
         ],
-      query: "Thanks you for the gud work Transport dept",
+      query: query,
       search_model: "ada",
       model: "curie",
       labels: ["Positive", "Negative", "Neutral"]
@@ -47,12 +48,12 @@ defmodule GPT3Test.Classification do
     "https://api.openai.com/v1/classifications"
   end
 
-  def start() do
+  def start(query) do
     HTTPoison.start()
-    case HTTPoison.post(url(), data(), headers()) do
+    case HTTPoison.post(url(), data(query), headers()) do
       {:ok, %HTTPoison.Response{status_code: 200, body: response}} -> # if success, output the result
         {:ok, body} = Jason.decode(response)
-        {:ok, body["label"]}
+        {:ok, query, body["label"]}
 
         {:ok, %HTTPoison.Response{status_code: 400, body: response}} -> # if failure, inspect error
           {:ok, error_msg} = Jason.decode(response)
@@ -63,6 +64,9 @@ defmodule GPT3Test.Classification do
 
         {:ok, %HTTPoison.Response{status_code: 401, body: response}} -> # Invalid auth header.
           {:error, "Something bad happened, #{response}"}
+
+        {:error, %HTTPoison.Error{id: nil, reason: :timeout}} ->
+          {:error, "The request timed out"}
     end
   end
 end
