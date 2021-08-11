@@ -1,4 +1,11 @@
 defmodule GPT3Test.Classification do
+  @moduledoc """
+  Implementing text classification using the Ada engine.
+  The example shown here is what we used in t=our final year
+  BE project.
+
+  It understood the training examples well and it handles spelling mistakes.
+  """
   defp api_key() do
     "<PASTE_YOUR_API_KEY_HERE>"
   end
@@ -6,10 +13,18 @@ defmodule GPT3Test.Classification do
   defp data do
     request_body = %{
       examples: [
-        ["A happy moment", "Positive"],
-        ["I am sad.", "Negative"],
-        ["I am feeling awesome", "Positive"]],
-      query: "It is a raining day :(",
+        ["No Electricity in Mapusa since morning 9AM, kindly get it fixed ASAP, people are facing a lot of trouble.", "Negative"],
+        ["No water in GEC for last one week, kindly get it fixed!!", "Negative"],
+
+        ["There was no electricity the entire night.
+        Our transformer kept getting shorted at night, What kind of maintenance was done one week back,
+        by cutting of the power supply of North Goa???", "Negative"],
+
+        ["No light for 4 hours", "Negative"],
+        ["I appreciate the department's work", "Positive"],
+        ["bad roads for 1 month(s)", "Negative"]
+        ],
+      query: "Thanks you for the gud work Transport dept",
       search_model: "ada",
       model: "curie",
       labels: ["Positive", "Negative", "Neutral"]
