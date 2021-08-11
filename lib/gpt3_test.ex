@@ -1,4 +1,5 @@
 defmodule GPT3Test do
+  import Secrets
   @author Kevin
   @moduledoc """
   Module to test with GPT 3
@@ -9,10 +10,6 @@ defmodule GPT3Test do
   This is using a completion api. Give a sentence as input
   and GPT3 will complete the sentence for you
   """
-
-  defp api_key() do
-    "<PASTE_YOUR_API_KEY_HERE>"
-  end
 
   defp data() do
     request_body = %{
