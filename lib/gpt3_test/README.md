@@ -23,8 +23,8 @@ So here's a classifier that does most of the heavy lifting for you. Just pass in
 irrelevant to the poll. Here's what I'm talking about
 
 
->> !["Different poll answers and their result"](../../output_imgs/poll-irrelevant.png "Different poll answers and their result")
+    !["Different poll answers and their result"](../../output_imgs/poll-irrelevant.png "Different poll answers and their result")
 
 2. Batch processing of queries isn't allowed. So, make a call for each individual query.
 
->> !["Different poll answers and their result"](../../output_imgs/poll-batch.png "Different poll answers and their result")
+     !["Different poll answers and their result"](../../output_imgs/poll-batch.png "Different poll answers and their result")
