@@ -28,7 +28,7 @@ mix deps.get
 
 3. To run a test completion task, run 
 ```console
-elixir lib/gpt3_test.ex
+elixir lib/gpt3_first_flight.ex
 ```
 
 
