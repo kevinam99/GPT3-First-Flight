@@ -16,7 +16,7 @@ So far, I've worked with text classification that includes analysing sentiments 
 1. Store your API key in ```lib/secrets.ex``` as,
 ```elixir
 defmodule Secrets do
-  defp api_key() do
+  def api_key() do
     "xx-xxxxxx"
   end
 end
