@@ -3,8 +3,8 @@ defmodule GPT3Test.ClassificationPoll do
 
   @moduledoc """
   Implementing text classification using the Ada engine.
-  The example shown here is what we used in t=our final year
-  BE project.
+  Here, we do it for classifying poll/survey answers as
+  valid or invalid
 
   It understood the training examples well and it handles spelling mistakes.
   It also handles grmmatical errors.
