@@ -1,4 +1,4 @@
-# GPT3 Test
+# GPT3 First Flight
 ![Elixir](https://img.shields.io/badge/elixir-%234B275F.svg?style=for-the-badge&logo=elixir&logoColor=white)
 ![GitHub](https://img.shields.io/github/license/kevinam99/GPT3-First-Steps?color=blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kevinam99/GPT3-First-Steps)

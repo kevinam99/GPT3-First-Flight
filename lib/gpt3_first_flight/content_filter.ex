@@ -1,4 +1,4 @@
-defmodule GPT3Test.ContentFilter do
+defmodule GPT3FirstFlight.ContentFilter do
   import Secrets
   @author Kevin
   @moduledoc """

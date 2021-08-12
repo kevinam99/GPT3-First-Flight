@@ -1,4 +1,4 @@
-defmodule GPT3Test do
+defmodule GPT3FirstFlight do
   import Secrets
   @author Kevin
   @moduledoc """

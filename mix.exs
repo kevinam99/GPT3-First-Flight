@@ -1,4 +1,4 @@
-defmodule Gpt3Test.MixProject do
+defmodule Gpt3FirstFlight.MixProject do
   use Mix.Project
 
   def project do

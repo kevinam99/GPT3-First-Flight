@@ -1,4 +1,4 @@
-defmodule GPT3Test.Classification do
+defmodule GPT3FirstFlight.Classification do
   import Secrets
 
   @moduledoc """
