@@ -3,7 +3,7 @@ defmodule Gpt3FirstFlight.MixProject do
 
   def project do
     [
-      app: :gpt3_test,
+      app: :gpt3_first_flight,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
