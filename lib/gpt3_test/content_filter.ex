@@ -47,12 +47,12 @@ defmodule GPT3Test.ContentFilter do
       {:ok, %HTTPoison.Response{status_code: 200, body: response}} ->
         {:ok, body} = Jason.decode(response)
         response_map = body["choices"] |> List.first()
+
         case response_map["text"] do
           "0" -> {:ok, query, "safe"}
           "1" -> {:ok, query, "sensitive"}
           "2" -> {:ok, query, "unsafe"}
         end
-
 
       # if failure, inspect error
       {:ok, %HTTPoison.Response{status_code: 400, body: response}} ->
