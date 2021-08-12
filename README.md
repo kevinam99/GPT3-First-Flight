@@ -1,6 +1,7 @@
 # GPT3 Test
-![Elixir](https://img.shields.io/badge/elixir-%234B275F.svg?style=for-the-badge&logo=elixir&logoColor=white) 
-      
+![Elixir](https://img.shields.io/badge/elixir-%234B275F.svg?style=for-the-badge&logo=elixir&logoColor=white)
+![GitHub](https://img.shields.io/github/license/kevinam99/GPT3-First-Steps?color=blue)
+
    
 **TODO: A lot!**
 Somebody please tell me how to hide my API key :'(  
