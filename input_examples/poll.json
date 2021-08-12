@@ -28,5 +28,6 @@
     ["It looks good and decent for looking. ", "invalid"],
     ["I like the flatter look of the font, it looks moe modern.","valid"],
     ["B is the best  online Sports/Gaming company.","valid"],
-    ["the font is cleaner and easier to read", "valid"]
+    ["the font is cleaner and easier to read", "valid"],
+    ["better than A", "invalid"]
 ]
