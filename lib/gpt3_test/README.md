@@ -18,4 +18,13 @@ and give vague or irrelevant answers toyour questions. Weeding them out manually
 
 So here's a classifier that does most of the heavy lifting for you. Just pass in an answer and see what it has to say!
 
-!["Different poll answers and their result"](../../output_imgs/poll-answers.png "Different poll answers and their result")
+### Caveats
+1. Make sure the input you give is in fact relevant in some way to the poll. Any long answer input will be considered valid even if it is
+irrelevant to the poll. Here's what I'm talking about
+
+
+>> !["Different poll answers and their result"](../../output_imgs/poll-irrelevant.png "Different poll answers and their result")
+
+2. Batch processing of queries isn't allowed. So, make a call for each individual query.
+
+>> !["Different poll answers and their result"](../../output_imgs/poll-batch.png "Different poll answers and their result")

@@ -83,7 +83,7 @@ defmodule GPT3Test.ClassificationPoll do
     end
   end
 
-  def start(query) do
+  def start(query \\ "better than A") do
     HTTPoison.start()
 
     case HTTPoison.post(url(), data(query), headers()) do
