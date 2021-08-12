@@ -1,5 +1,6 @@
 defmodule GPT3Test.Classification do
   import Secrets
+
   @moduledoc """
   Implementing text classification using the Ada engine.
   The example shown here is what we used in t=our final year
@@ -8,6 +9,7 @@ defmodule GPT3Test.Classification do
   It understood the training examples well and it handles spelling mistakes.
   It also handles grmmatical errors.
   """
+
   # defp api_key() do
   #   "<PASTE_YOUR_API_KEY_HERE>"
   # end
