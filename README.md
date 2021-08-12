@@ -30,9 +30,9 @@ be found at [https://hexdocs.pm/gpt3_test](https://hexdocs.pm/gpt3_test).
 ### Author
 1. Kevin Mathew, <kevinam99.work@gmail.com>
     
-    &nbsp; &nbsp; [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/neverloquacious.svg?style=social&label=Follow%20%40neverloquacious)](https://twitter.com/neverloquacious)  
-    &nbsp; &nbsp; <a href="https://www.linkedin.com/in/kevin-a-mathew/">
-    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+    &nbsp; &nbsp; [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/neverloquacious.svg?style=social&label=Follow%20%40neverloquacious)](https://twitter.com/neverloquacious)
+     <a href="https://www.linkedin.com/in/kevin-a-mathew/">
+    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=flat&logo=linkedin&logoColor=white" />
   </a>
 
 
