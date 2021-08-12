@@ -27,4 +27,17 @@ irrelevant to the poll. Here's what I'm talking about
 
 2. Batch processing of queries isn't allowed. So, make a call for each individual query.
 
-     !["Different poll answers and their result"](../../output_imgs/poll-batch.png "Different poll answers and their result")
+     !["Different poll answers and their result"](../../output_imgs/poll-batch.png "Different poll answers and their result")  
+
+
+## Content filtering
+This API is used to filter text based content as safe, sensitive or unsafe. It works pretty well for commonly used NSFW words.
+However, certain slangs are interpreted as unsafe. This filter is in beta, so there's possibility of high number of false positives
+to appear. Here are the results
+
+
+![content-filtering](../../output_imgs/content-filter.png "content filtering at work")
+
+Note: *Any opinions expressed here are random sentences taken from the internet ONLY for testing purposes. These are not to be construed as the opinions of the author of the repo nor that of OpenAI nor of GPT3.*
+
+So you want to avoid showing those sentences that have been marked `unsafe` or if you want to implement a stricter policy, you can omit the ones marked `sensitive`.
