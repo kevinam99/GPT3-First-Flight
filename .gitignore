@@ -28,4 +28,4 @@ gpt3_test-*.tar
 mix.lock
 .elixir_ls
 config/
-lib/secrets.exs
+lib/secrets.ex
