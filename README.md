@@ -9,7 +9,7 @@ For now, I hid it in ```lib/secrets.ex``` and ignored it in .gitignore
 
 An Elixir client for using OpenAI's GPT3. I have used barebones API without any dependencies except Jason (to work with json) and HTTPoison (to make requests).
 
-So far, I've worked with text classification that includes analysing sentiments and assessing whether a poll/survey answer is relevant to the surveyor. Have a look at [lib/gpt3_first_flight](./lib/gpt3_first_flight/).
+So far, I've worked with text classification that includes analysing sentiments and assessing whether a poll/survey answer is relevant to the surveyor. Have a look at [lib/gpt3_first_flight/](./lib/gpt3_first_flight/).
 
 
 ### Getting started
@@ -26,20 +26,24 @@ end
 mix deps.get
 ```
 
-3. Run the tests 
+3. Compile
+```console
+mix compile
+```
+
+4. Run the tests 
 ```console
 mix test
 ```
 
-4. To run a test completion task, run 
+5. To run a test completion task, run 
 ```console
 elixir lib/gpt3_first_flight.ex
 ```
 
-
 &nbsp; &nbsp; &nbsp; &nbsp; **Be sure you have Elixir and Mix installed!**
 
-5. Each module can only be run by invoking the ```start``` function with an input query.  
+6. Each module can only be run by invoking the ```start``` function with an input query.  
 <!-- Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/gpt3_test](https://hexdocs.pm/gpt3_test). -->
