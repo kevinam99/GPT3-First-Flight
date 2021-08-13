@@ -6,43 +6,38 @@ defmodule Gpt3FirstFlightTest do
   #   assert Gpt3FirstFlight.hello() == :world
   # end
 
-  test "poll answer - invalid" do
-    assert GPT3FirstFlight.ClassificationPoll.start("good") == {:ok, "good", "Invalid"}
-  end
-
-  test "poll answer - valid" do
-    assert GPT3FirstFlight.ClassificationPoll.start(
+  test "poll answer" do
+    assert GPT3FirstFlight.ClassificationPoll.start([
+             "good",
              "The second logo B is clear. so i like the send logo."
-           ) == {:ok, "The second logo B is clear. so i like the send logo.", "Valid"}
+           ]) == [
+             {:ok, "good", "Invalid"},
+             {:ok, "The second logo B is clear. so i like the send logo.", "Valid"}
+           ]
   end
 
-  test "sentiment classification - positive" do
-    assert GPT3FirstFlight.Classification.start("Thank you for your good work, Transport dept") ==
-             {:ok, "Thank you for your good work, Transport dept", "Positive"}
-  end
-
-  test "sentiment classification - negative" do
-    assert GPT3FirstFlight.Classification.start(
+  test "sentiment classification" do
+    assert GPT3FirstFlight.Classification.start([
+             "Thank you for your good work, Transport dept",
              "The municipality people haven't yet collected the garbage"
-           ) == {:ok, "The municipality people haven't yet collected the garbage", "Negative"}
+           ]) ==
+             [
+               {:ok, "Thank you for your good work, Transport dept", "Positive"},
+               {:ok, "The municipality people haven't yet collected the garbage", "Negative"}
+             ]
   end
 
-  test "content filtering - safe" do
-    assert GPT3FirstFlight.ContentFilter.start("It was great to meet an old friend yesterday") ==
-             {:ok, "It was great to meet an old friend yesterday", "safe"}
-  end
-
-  test "content filtering - unsafe" do
-    assert GPT3FirstFlight.ContentFilter.start("The code shit the bed") ==
-             {:ok, "The code shit the bed", "unsafe"}
-  end
-
-  test "content filtering - sensitive" do
-    assert GPT3FirstFlight.ContentFilter.start(
-             "Donald Trump is probably the worst thing that happened to the US"
-           ) ==
-             {:ok, "Donald Trump is probably the worst thing that happened to the US",
-              "sensitive"}
+  test "content filtering" do
+    GPT3FirstFlight.ContentFilter.start([
+      "Met a nice guy at the park",
+      "The government is spying on us",
+      "the code shit the bed"
+    ]) ==
+      [
+        {:ok, "Met a nice guy at the park", "safe"},
+        {:ok, "The government is spying on us", "sensitive"},
+        {:ok, "the code shit the bed", "unsafe"}
+      ]
   end
 
   # test "completion" do

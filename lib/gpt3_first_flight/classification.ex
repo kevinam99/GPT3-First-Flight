@@ -62,7 +62,7 @@ defmodule GPT3FirstFlight.Classification do
     "https://api.openai.com/v1/classifications"
   end
 
-  def start(query) do
+  defp run_query(query) do
     HTTPoison.start()
 
     case HTTPoison.post(url(), data(query), headers()) do
@@ -87,5 +87,23 @@ defmodule GPT3FirstFlight.Classification do
       {:error, %HTTPoison.Error{id: nil, reason: :timeout}} ->
         {:error, "The request timed out"}
     end
+  end
+
+  # Now, I have added batch processing capability.
+  # Give the input as a list of queries and it will generate the relevant output
+  def start(queries) do
+    Task.async_stream(
+      queries,
+      fn query ->
+        run_query(query)
+      end,
+      max_concurrency: 5,
+      timeout: 30_000,
+      on_timeout: :exit
+    )
+    |> Enum.map(fn
+      {:ok, result} -> result
+      _ -> "Something went wrong"
+    end)
   end
 end
