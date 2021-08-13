@@ -4,14 +4,14 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build GPT3-First-Flight'
-        sh 'sh mix compile'
+        sh 'mix compile'
       }
     }
 
     stage('Linux test') {
       steps {
         echo 'Run Linux tests'
-        sh 'sh mix test'
+        sh 'mix test'
       }
     }
 
