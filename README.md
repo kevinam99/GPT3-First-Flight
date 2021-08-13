@@ -11,7 +11,7 @@ An Elixir client for using OpenAI's GPT3. I have used barebones API without any 
 
 Since OpenAI doesn't allow for batch processing so I used Elixir's Task module to
 implement concurrency while reducing the overall time taken for executing multiple queries.
-So far, I've worked with text classification that includes analysing sentiments and assessing whether a poll/survey answer is relevant to the surveyor. Have a look at [lib/gpt3_first_flight/](./lib/gpt3_first_flight/).
+So far, I've worked with text classification that includes analysing sentiments and assessing whether a poll/survey answer is relevant to the surveyor. Have a look at [lib/gpt3_first_flight/](./lib/gpt3_first_flight/). Please head over to [lib/gpt3_first_flight/](lib/gpt3_first_flight/) for additional documentation. 
 
 
 ### Getting started
@@ -46,6 +46,8 @@ elixir lib/gpt3_first_flight.ex
 &nbsp; &nbsp; &nbsp; &nbsp; **Be sure you have Elixir and Mix installed!**
 
 6. Each module can only be run by invoking the ```start``` function with an input query.  **All inputs must be passed in a list, irrespective of the total number of inputs.**
+
+Please head over to [./lib/](./lib/) for additional documentation. 
 <!-- Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/gpt3_test](https://hexdocs.pm/gpt3_test). -->
