@@ -26,7 +26,12 @@ end
 mix deps.get
 ```
 
-3. To run a test completion task, run 
+3. Run the tests 
+```console
+mix test
+```
+
+4. To run a test completion task, run 
 ```console
 elixir lib/gpt3_first_flight.ex
 ```
@@ -34,7 +39,7 @@ elixir lib/gpt3_first_flight.ex
 
 &nbsp; &nbsp; &nbsp; &nbsp; **Be sure you have Elixir and Mix installed!**
 
-4. Each module can only be run by invoking the ```start``` function with an input query.  
+5. Each module can only be run by invoking the ```start``` function with an input query.  
 <!-- Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/gpt3_test](https://hexdocs.pm/gpt3_test). -->
