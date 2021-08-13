@@ -4,7 +4,10 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build GPT3-First-Flight'
-        sh 'mix compile'
+        sh '''
+
+
+mix deps.get&&mix compile'''
       }
     }
 
