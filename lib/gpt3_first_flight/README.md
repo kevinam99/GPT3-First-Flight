@@ -9,8 +9,8 @@ Here's the test outline:
 |Content filtering|3              |3                    |
 
 That's a total of 7 requests running concurrently which completed 
-in  3.1s! 
-![test time info](../../output_imgs/tests.png "test time info")
+in  2.1s!
+![test time info](../../output_imgs/test-result.png "test time info")
 
 **All inputs must be passed in a list, irrespective of the total number of inputs.**
 ## Classification

@@ -1,5 +1,5 @@
 defmodule Gpt3FirstFlightTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest GPT3FirstFlight
 
   # test "greets the world" do
