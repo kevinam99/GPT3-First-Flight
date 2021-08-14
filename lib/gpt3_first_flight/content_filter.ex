@@ -46,9 +46,8 @@ defmodule GPT3FirstFlight.ContentFilter do
       # if success, output the result
       {:ok, %HTTPoison.Response{status_code: 200, body: response}} ->
         {:ok, body} = Jason.decode(response, keys: :atoms)
-        response_map = body.choices |> List.first()
 
-        case response_map.text do
+        case hd(body.choices).text do
           "0" -> {:ok, query, "safe"}
           "1" -> {:ok, query, "sensitive"}
           "2" -> {:ok, query, "unsafe"}
