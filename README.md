@@ -47,7 +47,7 @@ elixir lib/gpt3_first_flight.ex
 
 6. Each module can only be run by invoking the ```start``` function with an input query.  **All inputs must be passed in a list, irrespective of the total number of inputs.**
 
-Please head over to [./lib/](./lib/) for additional documentation. 
+Please head over to [./lib/gpt3_test_flight](./lib/gpt3_test_flight) for additional documentation. 
 <!-- Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/gpt3_test](https://hexdocs.pm/gpt3_test). -->
