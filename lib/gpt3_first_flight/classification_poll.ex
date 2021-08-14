@@ -89,8 +89,8 @@ defmodule GPT3FirstFlight.ClassificationPoll do
     case HTTPoison.post(url(), data(query), headers()) do
       # if success, output the result
       {:ok, %HTTPoison.Response{status_code: 200, body: response}} ->
-        {:ok, body} = Jason.decode(response)
-        {:ok, query, body["label"]}
+        {:ok, body} = Jason.decode(response, keys: :atoms)
+        {:ok, query, body.label}
 
       # if failure, inspect error
       {:ok, %HTTPoison.Response{status_code: 400, body: response}} ->
