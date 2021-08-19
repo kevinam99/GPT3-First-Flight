@@ -5,7 +5,7 @@ defmodule Gpt3FirstFlight.MixProject do
     [
       app: :gpt3_first_flight,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.10.3",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
