@@ -28,9 +28,11 @@ defmodule GPT3FirstFlight.ContentFilter do
   end
 
   defp headers() do
+    api_key = Application.fetch_env!(:gpt3_first_flight, :api_key)
+
     [
       "Content-Type": "application/json",
-      Authorization: "Bearer #{Application.fetch_env!(:gpt3_first_flight, :api_key)}"
+      Authorization: "Bearer #{api_key}"
     ]
   end
 
