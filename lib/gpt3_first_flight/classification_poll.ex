@@ -1,6 +1,4 @@
 defmodule GPT3FirstFlight.ClassificationPoll do
-  import Secrets
-
   @moduledoc """
   Implementing text classification using the Ada engine.
   Here, we do it for classifying poll/survey answers as
@@ -38,7 +36,7 @@ defmodule GPT3FirstFlight.ClassificationPoll do
   defp headers() do
     [
       "Content-Type": "application/json",
-      Authorization: "Bearer #{api_key()}"
+      Authorization: "Bearer #{Application.get_env(:gpt3_first_flight, :api_key)}"
     ]
   end
 

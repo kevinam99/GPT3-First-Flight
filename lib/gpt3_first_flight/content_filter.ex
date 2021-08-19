@@ -1,5 +1,4 @@
 defmodule GPT3FirstFlight.ContentFilter do
-  import Secrets
   @author Kevin
   @moduledoc """
   Module to test with GPT 3
@@ -31,7 +30,7 @@ defmodule GPT3FirstFlight.ContentFilter do
   defp headers() do
     [
       "Content-Type": "application/json",
-      Authorization: "Bearer #{api_key()}"
+      Authorization: "Bearer #{Application.get_env(:gpt3_first_flight, :api_key)}"
     ]
   end
 

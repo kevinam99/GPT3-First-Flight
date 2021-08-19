@@ -13,37 +13,35 @@ Since OpenAI doesn't allow for batch processing so I used Elixir's Task module t
 implement concurrency while reducing the overall time taken for executing multiple queries.
 So far, I've worked with text classification that includes analysing sentiments and assessing whether a poll/survey answer is relevant to the surveyor. Have a look at [lib/gpt3_first_flight/](./lib/gpt3_first_flight/). Please head over to [lib/gpt3_first_flight/](lib/gpt3_first_flight/) for additional documentation. 
 
+&nbsp; &nbsp; &nbsp; &nbsp; **Be sure you have Elixir and Mix installed!**
 
 ### Getting started
-1. Store your API key in ```lib/secrets.ex``` as,
+1. Store your API key in ```lib/config/dev.exs``` as,
 ```elixir
-defmodule Secrets do
-  def api_key() do
-    "xx-xxxxxx"
-  end
-end
+import Config
+
+config :gpt3_first_flight, api_key: "xx-xxx"
 ```
+A reference [./config/dev.exs.example](./config/dev.exs.example) has also been included.
 2. Install the dependencies before running any file. Run
 ```console
-mix deps.get
+MIX_ENV=dev mix deps.get
 ```
 
 3. Compile
 ```console
-mix compile
+MIX_ENV=dev mix compile
 ```
 
 4. Run the tests 
 ```console
-mix test
+MIX_ENV=dev mix test
 ```
 
 5. To run a test completion task, run 
 ```console
-elixir lib/gpt3_first_flight.ex
+MIX_ENV=dev elixir lib/gpt3_first_flight.ex
 ```
-
-&nbsp; &nbsp; &nbsp; &nbsp; **Be sure you have Elixir and Mix installed!**
 
 6. Each module can only be run by invoking the ```start``` function with an input query.  **All inputs must be passed in a list, irrespective of the total number of inputs.**
 

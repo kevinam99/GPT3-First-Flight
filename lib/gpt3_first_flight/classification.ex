@@ -1,6 +1,4 @@
 defmodule GPT3FirstFlight.Classification do
-  import Secrets
-
   @moduledoc """
   Implementing text classification using the Ada engine.
   The example shown here is what we used in t=our final year
@@ -54,7 +52,7 @@ defmodule GPT3FirstFlight.Classification do
   defp headers() do
     [
       "Content-Type": "application/json",
-      Authorization: "Bearer #{api_key()}"
+      Authorization: "Bearer #{Application.get_env(:gpt3_first_flight, :api_key)}"
     ]
   end
 
