@@ -3,10 +3,9 @@
 ![GitHub](https://img.shields.io/github/license/kevinam99/GPT3-First-Steps?color=blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kevinam99/GPT3-First-Steps)
    
-**TODO: A lot!**
-Somebody please tell me how to hide my API key :'(  
-For now, I hid it in ```lib/secrets.ex``` and ignored it in .gitignore  
-
+**TODO: A lot!**  
+Succeeded in hiding the API key in lib/config/dev.exs  
+I don't know what else could be done except adding more functionalities using the API.
 An Elixir client for using OpenAI's GPT3. I have used barebones API without any dependencies except Jason (to work with json) and HTTPoison (to make requests).
 
 Since OpenAI doesn't allow for batch processing so I used Elixir's Task module to
